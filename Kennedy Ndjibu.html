@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kennedy Ndjibu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5faf7; --card:#ffffff; --card-grad:#e9f6f0; --text:#0f2a24; --muted:#3f5a52;
+  --border:#9fd0c0; --accent:#0f766e; --nav:#0b3b34; --nav-text:#ffffff; --node:#6fae9c; --line:#bfe0d5; --chip:#e0f2ec;
+  box-sizing:border-box; padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08140f; --card:#0e1f19; --card-grad:#12291f; --text:#e6f5ef; --muted:#a3c2b6;
+    --border:#25594a; --accent:#5eead4; --nav:#04100c; --node:#3d8a74; --line:#1b3b30; --chip:#143026;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08140f; --card:#0e1f19; --card-grad:#12291f; --text:#e6f5ef; --muted:#a3c2b6;
+  --border:#25594a; --accent:#5eead4; --nav:#04100c; --node:#3d8a74; --line:#1b3b30; --chip:#143026;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Work Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;min-height:100vh;padding-top:env(safe-area-inset-top,0px)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;overflow:hidden;opacity:.8}
+#bg .m{position:absolute;white-space:nowrap;color:var(--node)}
+#bg .m small{display:block;font:600 10px "Work Sans",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:2px}
+#bg .m span{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(16px,1.6vw,24px)}
+main{max-width:776px;margin:0 auto;padding:40px 16px 64px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 1px 3px rgba(20,40,90,.06)}
+.profile{display:flex;gap:44px;align-items:center;padding:42px 28px 40px 32px;background:linear-gradient(135deg,var(--card) 35%,var(--card-grad))}
+.photo{flex:0 0 auto;width:160px;height:160px;border-radius:50%;border:4px solid #fff;box-shadow:0 2px 10px rgba(20,40,90,.25);overflow:hidden;background:linear-gradient(160deg,#cde8df,#8cc5b3);display:flex;align-items:flex-end;justify-content:center}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo svg{width:78%;height:78%}
+h1,h2{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600;margin:0}
+h1{font-size:42px;line-height:1.1;letter-spacing:.2px}
+h2{font-size:32px;margin:40px 0 18px}
+.tag{margin:12px 0 16px;color:var(--muted);font-size:15.5px}
+.cvbtn{display:inline-block;padding:9px 18px;border-radius:6px;border:1px solid var(--border);background:var(--chip);color:var(--muted);font-weight:500;font-size:14px;text-decoration:none;margin-bottom:18px}
+.links{display:flex;flex-wrap:wrap;gap:8px 22px}
+.links a{display:inline-flex;align-items:center;gap:8px;color:var(--text);font-weight:600;font-size:15px;text-decoration:none}
+.links a:hover,.cvbtn:hover{color:var(--accent)}
+.links svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.about{padding:24px 26px}
+.about p{margin:0 0 14px}.about p:last-child{margin:0}
+.about b{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:22px 26px}
+.chip{background:var(--chip);color:var(--accent);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:14px;font-weight:600;letter-spacing:.2px}
+.viz{padding:18px 20px 22px;text-align:center}
+.viz canvas{width:100%;height:340px;display:block;cursor:grab;touch-action:pan-y}
+.fx{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-style:italic;font-size:20px;color:var(--muted);margin:4px 0 14px;min-height:30px}
+#fbtn{background:#15201c;color:#fff;border:1px solid #2c3a35;border-radius:10px;padding:14px 26px;font:500 16px "Work Sans",system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.28)}
+#fbtn:hover{filter:brightness(1.35)}
+.hint{margin-top:12px;font-size:12.5px;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--border);margin:44px 0 0;opacity:.7}
+footer{text-align:center;color:var(--muted);font-size:13.5px;margin-top:48px}
+@media (max-width:640px){
+  .profile{flex-direction:column;text-align:center;gap:22px;padding:32px 20px}
+  .links{justify-content:center}
+  h1{font-size:36px}
+}
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div>
+
+<main>
+  <section class="card profile" id="top">
+    <div class="photo" id="photo">
+      <svg viewBox="0 0 100 100" aria-label="Profile photo placeholder"><circle cx="50" cy="38" r="17" fill="#f4f7ff" opacity=".9"/><path d="M14 100c0-22 16-34 36-34s36 12 36 34z" fill="#f4f7ff" opacity=".9"/></svg>
+    </div>
+    <div>
+      <h1>Kennedy Ndjibu</h1>
+      <div class="tag">Machine Learning · Deep Learning · Generative AI · Agentic AI · Computational Neuroscience </div>
+      <a class="cvbtn" id="cvbtn" href="#">CV here!</a>
+      <div class="links" id="contact"></div>
+    </div>
+  </section>
+
+  <h2 id="about">About</h2>
+  <section class="card about">
+    <p>I am a Master’s student in <b>Mathematics and Computer Science</b>. My interests include <b>Artificial Intelligence, Machine Learning, Mathematics, Computational Neuroscience and Cybersecurity</b>.</p>
+    <p>I enjoy developing technical projects, exploring research ideas, and strengthening my knowledge of mathematics and computer science. My long-term goal is to pursue a PhD and contribute to scientific research in the Democratic Republic of the Congo and internationally.</p>
+  </section>
+
+  <hr>
+  <h2 id="interests">Research Interests</h2>
+  <section class="card chips">
+    <span class="chip">Artificial Intelligence</span>
+    <span class="chip">Machine Learning</span>
+    <span class="chip">Mathematics</span>
+    <span class="chip">Computational Neuroscience</span>
+    <span class="chip">Cybersecurity</span>
+  </section>
+
+  <h2 id="visual">Mathematics of AI</h2>
+  <section class="card viz">
+    <canvas id="gc" aria-label="3D surface plot of a function used in AI and machine learning"></canvas>
+    <div class="fx" id="fx"></div>
+    <button id="fbtn" type="button"></button>
+  </section>
+
+  <footer>© <span id="yr"></span> Kennedy Ndjibu</footer>
+</main>
+
+<script>
+// ---- Fill these in when you have them; empty values stay as placeholders ----
+var CONFIG = {
+  email: "kennedyndjibu07@gmail.com",
+  linkedin: "www.linkedin.com/in/kennedy-ndjibu-1a53ba343",
+  cv: "",        // e.g. "https://…/cv.pdf"
+  photo: "kennedyphoto1.jpeg"      // e.g. "https://…/photo.jpg"
+};
+var GITHUB = "https://github.com/kennedy336";
+
+var ICONS = {
+  email: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+  github: '<svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>',
+  linkedin: '<svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
+};
+
+function setLink(el, href, label) {
+  if (href) { el.href = href; if (/^https?:/.test(href)) { el.target = "_blank"; el.rel = "noopener"; } }
+  else { el.href = "#"; el.addEventListener("click", function (e) { e.preventDefault(); }); }
+}
+
+var box = document.getElementById("contact");
+[
+  ["Email", "email", CONFIG.email ? "mailto:" + CONFIG.email : "", "email"],
+  ["GitHub", "github", GITHUB, "GitHub"],
+  ["LinkedIn", "linkedin", CONFIG.linkedin, "LinkedIn URL"]
+].forEach(function (l) {
+  var a = document.createElement("a");
+  a.innerHTML = ICONS[l[1]] + "<span>" + l[0] + "</span>";
+  setLink(a, l[2], l[3]);
+  box.appendChild(a);
+});
+setLink(document.getElementById("cvbtn"), CONFIG.cv, "CV link");
+
+if (CONFIG.photo) {
+  var p = document.getElementById("photo");
+  p.innerHTML = "";
+  var img = new Image(); img.src = CONFIG.photo; img.alt = "Kennedy Ndjibu";
+  p.appendChild(img);
+}
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+// ---- 3D surface explorer (canvas, no library) ----
+(function () {
+  var cv = document.getElementById("gc"), ctx = cv.getContext("2d"), N = 44;
+  var G = function (x, y, cx, cy, s) { return Math.exp(-((x - cx) * (x - cx) + (y - cy) * (y - cy)) / (2 * s * s)); };
+  var FN = [
+    ["Mysterious function", "f(x, y) = Σ aₖ exp(−‖(x, y) − cₖ‖² / 2σₖ²)", function (x, y) { return 1.6 * G(x, y, .1, .2, .18) + 1.2 * G(x, y, .35, .1, .12) + .9 * G(x, y, -.75, -.1, .22) + .5 * G(x, y, .1, -.55, .2) + .6 * G(x, y, .7, -.2, .15) - .5 * G(x, y, .05, -.35, .1); }],
+    ["Gaussian", "p(x) = exp(−‖x‖² / 2σ²)", function (x, y) { return G(x, y, 0, 0, .4); }],
+    ["Saddle point", "f(x, y) = x² − y²", function (x, y) { return x * x - y * y; }],
+    ["Sigmoid", "σ(w·x + b) = 1 / (1 + e^−(w·x + b))", function (x, y) { return 1 / (1 + Math.exp(-4 * (x + y))); }],
+    ["Loss valley", "f(x, y) = (1 − x)² + 100 (y − x²)²", function (x, y) { var a = x * 1.5, b = y * 1.5 + .5; return Math.log(1 + (1 - a) * (1 - a) + 10 * (b - a * a) * (b - a * a)); }],
+    ["Rastrigin", "f(x) = 10n + Σ [xᵢ² − 10 cos(2π xᵢ)]", function (x, y) { var a = x * 2.2, b = y * 2.2; return 20 + a * a + b * b - 10 * Math.cos(6.283 * a) - 10 * Math.cos(6.283 * b); }]
+  ];
+  var Z = FN.map(function (f) {
+    var a = new Float32Array(N * N), mn = 1e9, mx = -1e9, i, j, v;
+    for (j = 0; j < N; j++) for (i = 0; i < N; i++) { v = f[2](i / (N - 1) * 2 - 1, j / (N - 1) * 2 - 1); a[j * N + i] = v; mn = Math.min(mn, v); mx = Math.max(mx, v); }
+    for (i = 0; i < a.length; i++) a[i] = (a[i] - mn) / (mx - mn);
+    return a;
+  });
+  var cur = new Float32Array(Z[0]), idx = 0, az = -0.6, el = 0.95;
+  var btn = document.getElementById("fbtn"), fx = document.getElementById("fx");
+
+  function draw() {
+    var dpr = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight;
+    if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+    var sc = Math.min(w * .75, h * 1.25) * .5, ca = Math.cos(az), sa = Math.sin(az), ce = Math.cos(el), se = Math.sin(el), P = [], Q = [], i, j;
+    for (j = 0; j < N; j++) for (i = 0; i < N; i++) {
+      var x = i / (N - 1) * 2 - 1, y = j / (N - 1) * 2 - 1, z = (cur[j * N + i] - .5) * 1.1;
+      var X = x * ca - y * sa, Y = x * sa + y * ca;
+      P.push([w / 2 + X * sc, h * .52 + (Y * se - z * ce) * sc, Y * ce + z * se]);
+    }
+    for (j = 0; j < N - 1; j++) for (i = 0; i < N - 1; i++) {
+      var a = P[j * N + i], b = P[j * N + i + 1], c = P[(j + 1) * N + i + 1], d = P[(j + 1) * N + i];
+      Q.push([(a[2] + b[2] + c[2] + d[2]) / 4, a, b, c, d, (cur[j * N + i] + cur[j * N + i + 1] + cur[(j + 1) * N + i + 1] + cur[(j + 1) * N + i]) / 4]);
+    }
+    Q.sort(function (u, v) { return u[0] - v[0]; });
+    ctx.lineWidth = .7; ctx.lineJoin = "round";
+    Q.forEach(function (q) {
+      var col = "hsl(" + ((260 - 290 * q[5] + 360) % 360).toFixed(0) + ",85%," + (40 + 10 * q[5]).toFixed(0) + "%)";
+      ctx.fillStyle = col; ctx.strokeStyle = col;
+      ctx.beginPath(); ctx.moveTo(q[1][0], q[1][1]); ctx.lineTo(q[2][0], q[2][1]); ctx.lineTo(q[3][0], q[3][1]); ctx.lineTo(q[4][0], q[4][1]); ctx.closePath(); ctx.fill(); ctx.stroke();
+    });
+  }
+  var busy = false;
+  function morph() {
+    var t = Z[idx], m = 0, i;
+    for (i = 0; i < cur.length; i++) { cur[i] += (t[i] - cur[i]) * .2; m = Math.max(m, Math.abs(t[i] - cur[i])); }
+    draw();
+    if (m > .004) requestAnimationFrame(morph); else { cur.set(t); draw(); busy = false; }
+  }
+  function label() { btn.textContent = FN[idx][0]; fx.textContent = FN[idx][1]; }
+  btn.addEventListener("click", function () { idx = (idx + 1) % FN.length; label(); if (!busy) { busy = true; requestAnimationFrame(morph); } });
+
+  var drag = null;
+  cv.addEventListener("pointerdown", function (e) { drag = [e.clientX, e.clientY]; cv.setPointerCapture(e.pointerId); cv.style.cursor = "grabbing"; });
+  cv.addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    az += (e.clientX - drag[0]) * .01; el = Math.max(.35, Math.min(1.4, el + (e.clientY - drag[1]) * .006));
+    drag = [e.clientX, e.clientY]; if (!busy) draw();
+  });
+  function up() { drag = null; cv.style.cursor = "grab"; }
+  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  window.addEventListener("resize", draw);
+  label(); draw();
+})();
+
+// ---- Background: AI mathematics and ML / DL algorithms (seeded, stable layout) ----
+(function () {
+  var F = [
+    ["Gradient descent", "θ ← θ − η ∇L(θ)"],
+    ["Transformer · Attention", "softmax(QKᵀ/√dₖ) V"],
+    ["Softmax", "σ(z)ᵢ = eᶻⁱ / Σⱼ eᶻʲ"],
+    ["Backpropagation", "∂L/∂w = ∂L/∂ŷ · ∂ŷ/∂z · ∂z/∂w"],
+    ["Cross-entropy", "L = − Σ yᵢ log ŷᵢ"],
+    ["Bayes", "P(A|B) = P(B|A) P(A) / P(B)"],
+    ["Adam", "mₜ = β₁ mₜ₋₁ + (1 − β₁) gₜ"],
+    ["VAE", "D_KL(q‖p) = Σ q log(q/p)"],
+    ["Sigmoid", "σ(x) = 1 / (1 + e⁻ˣ)"],
+    ["CNN · Convolution", "(f ∗ g)(t) = ∫ f(τ) g(t − τ) dτ"],
+    ["Linear regression", "MSE = (1/n) Σ (yᵢ − ŷᵢ)²"],
+    ["PCA · SVD", "A = U Σ Vᵀ"],
+    ["ReLU", "f(x) = max(0, x)"],
+    ["RNN", "hₜ = tanh(Wₓ xₜ + Wₕ hₜ₋₁ + b)"],
+    ["SVM", "min ½‖w‖² s.t. yᵢ(w·xᵢ + b) ≥ 1"],
+    ["k-means", "arg min Σ ‖x − μₖ‖²"],
+    ["Max. likelihood", "θ* = arg max Σ log p(xᵢ; θ)"],
+    ["VAE · Reparametrization", "z = μ + σ ⊙ ε,  ε ~ 𝒩(0, I)"],
+    ["Covariance", "Σ = 𝔼[(X − μ)(X − μ)ᵀ]"],
+    ["Regularization", "L(θ) + λ‖θ‖²"]
+  ];
+  var bg = document.getElementById("bg");
+  function draw() {
+    var s = 11;
+    function r() { s = (s * 16807) % 2147483647; return s / 2147483647; }
+    var wide = window.innerWidth >= 1200, out = "";
+    F.forEach(function (f, i) {
+      var x, y;
+      if (wide) { x = i % 2 ? 72 + r() * 6 : 2 + r() * 6; y = 3 + Math.floor(i / 2) * 9.4 + r() * 2.5; }
+      else { x = 3 + r() * 36; y = 1.5 + i * 4.9 + r() * 1.5; }
+      out += '<div class="m" style="left:' + x.toFixed(1) + '%;top:' + y.toFixed(1) + '%;transform:rotate(' + ((r() - 0.5) * 10).toFixed(1) + 'deg)"><small>' + f[0] + '</small><span>' + f[1] + '</span></div>';
+    });
+    bg.innerHTML = out;
+  }
+  draw();
+  window.addEventListener("resize", draw);
+})();
+</script>
+</body>
+</html>
